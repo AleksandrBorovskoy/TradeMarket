@@ -251,7 +251,7 @@ namespace TradeMarket.Tests.IntegrationTests
                 dbCustomer.Should().NotBeNull();
                 dbCustomer.DiscountValue.Should().Be(dbCustomer.DiscountValue);
 
-                var dbPerson = await context.Persons.FindAsync(customerId);
+                var dbPerson = await context.Persons.FindAsync(customerId); // should pass dbCustomer.PersonId?
                 dbPerson.Should().NotBeNull().And.BeEquivalentTo(customer, options => options
                     .Including(x => x.Name)
                     .Including(x => x.Surname)
